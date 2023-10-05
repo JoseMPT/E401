@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Gifts store</string>
+    <string name="logo">Logo</string>
+
+    <string name="welcome_message">Welcome</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Password</string>
+    <string name="btn_login">Sign in</string>
+    <string name="btn_register">Sign up</string>
+    <string name="btn_forgot_password">Forgot password?</string>
+    <string name="btn_no_account">Don\'t have an account?</string>
+</resources>
