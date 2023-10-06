@@ -5,8 +5,15 @@
     <string name="welcome_message">Welcome</string>
     <string name="hint_email">Email</string>
     <string name="hint_password">Password</string>
+    <string name="hint_name">Name</string>
+    <string name="hint_lastname1">Last name 1</string>
+    <string name="hint_lastname2">Last name 2</string>
+    <string name="btn_register_new">Sign up</string>
+    <string name="btn_back_login">I\'m registered</string>
     <string name="btn_login">Sign in</string>
-    <string name="btn_register">Sign up</string>
-    <string name="btn_forgot_password">Forgot password?</string>
+    <string name="btn_register">No account? Sign up!</string>
+    <string name="btn_forgot_password">I forgot my password.</string>
     <string name="btn_no_account">Don\'t have an account?</string>
+    <string name="register_a_new_user">Register a new user</string>
+
 </resources>
