@@ -2,7 +2,6 @@ package mx.tecnm.cdhidalgo.e401
 
 import android.app.ActivityOptions
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -10,6 +9,7 @@ import android.util.Pair
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.ImageView
+import androidx.appcompat.app.AppCompatActivity
 
 class Splash : AppCompatActivity() {
     private lateinit var logo : ImageView
