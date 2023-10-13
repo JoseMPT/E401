@@ -104,7 +104,7 @@ class Register : AppCompatActivity() {
     }
 
     private fun saveUserData(user: UserDataClass){
-        firestore.collection("users").document(user.email)
+        firestore.collection("users").document(user.email!!)
             .set(user)
             .addOnSuccessListener {
                 Toast.makeText(
@@ -117,20 +117,6 @@ class Register : AppCompatActivity() {
                 Toast.makeText(
                     baseContext,
                     "User data not saved",
-                    Toast.LENGTH_SHORT,
-                ).show()
-            }
-    }
-
-    private fun signInUser(email: String, password: String){
-        auth.signInWithEmailAndPassword(email, password)
-            .addOnSuccessListener {
-
-            }
-            .addOnFailureListener {
-                Toast.makeText(
-                    baseContext,
-                    "User or password incorrect",
                     Toast.LENGTH_SHORT,
                 ).show()
             }
