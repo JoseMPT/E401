@@ -15,7 +15,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
-lateinit var userData: UserDataClass
+var userData: UserDataClass = UserDataClass(name = "", lastname1 = "", lastname2 = "", email = "")
 class Login : AppCompatActivity() {
     private lateinit var btnGoRegister: MaterialButton
     private lateinit var btnLogin: Button
