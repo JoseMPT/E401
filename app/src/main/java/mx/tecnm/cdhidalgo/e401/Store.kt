@@ -30,9 +30,12 @@ class Store : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
 
-        userText.text = String.format("Welcome %s %s %s!",
-            userData?.name, userData?.lastname1, userData?.lastname2)
-            .trim()
+        /*userText.text = String.format("Welcome %s %s %s!",
+            userData.name, userData.lastname1, userData.lastname2
+        ).trim()*/
+        userText.text = String.format("Welcome %s!",
+            (auth.currentUser?.displayName ?: auth.currentUser?.email ?: "User")
+        ).trim()
 
         btnSignOut.setOnClickListener {
             signOutUser()

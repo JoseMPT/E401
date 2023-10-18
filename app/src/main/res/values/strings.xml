@@ -16,5 +16,6 @@
     <string name="btn_no_account">Don\'t have an account?</string>
     <string name="register_a_new_user">Register a new user</string>
     <string name="logo_descrip">Logo</string>
-
+    <string name="login_google_text">Iniciar con Google</string>
+    <string name="web_client_id">545057855988-enud8gsgvnhe0o5dnrnc95iojurf9rom.apps.googleusercontent.com</string>
 </resources>

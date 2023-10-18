@@ -90,6 +90,15 @@
             android:text="@string/btn_login"
             android:textStyle="bold"/>
 
+        <Button
+            android:id="@+id/btn_login_google"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:backgroundTint="@color/red"
+            android:text="@string/login_google_text"
+            android:textStyle="bold"/>
+
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_register"
             android:layout_width="wrap_content"
