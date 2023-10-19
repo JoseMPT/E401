@@ -1,6 +1,5 @@
 package mx.tecnm.cdhidalgo.e401
 
-import android.content.ContentValues
 import android.content.ContentValues.TAG
 import android.content.Intent
 import android.content.IntentSender
@@ -12,11 +11,8 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.auth.api.identity.BeginSignInRequest
 import com.google.android.gms.auth.api.identity.Identity
 import com.google.android.gms.auth.api.identity.SignInClient
-import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
-import com.google.android.gms.common.api.GoogleApiClient
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseAuth
@@ -25,11 +21,13 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import entities.UserDataClass
 
 
 var userData: UserDataClass = UserDataClass(name = "", lastname1 = "", lastname2 = "", email = "")
 class Login : AppCompatActivity() {
     private lateinit var btnGoRegister: MaterialButton
+    private lateinit var btnForgotPass: MaterialButton
     private lateinit var btnLogin: Button
     private lateinit var btnGoogle: Button
     private lateinit var inputEmail : TextInputLayout
@@ -49,6 +47,7 @@ class Login : AppCompatActivity() {
         setContentView(R.layout.activity_login)
 
         btnGoRegister = findViewById(R.id.btn_register)
+        btnForgotPass = findViewById(R.id.btn_forgot_password)
         btnLogin = findViewById(R.id.btn_login)
         btnGoogle = findViewById(R.id.btn_login_google)
 
@@ -81,6 +80,11 @@ class Login : AppCompatActivity() {
 
         btnGoRegister.setOnClickListener{
             val intent = Intent(this, Register::class.java)
+            startActivity(intent)
+        }
+
+        btnForgotPass.setOnClickListener{
+            val intent = Intent(this, RecoverPassword::class.java)
             startActivity(intent)
         }
 

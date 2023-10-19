@@ -18,4 +18,9 @@
     <string name="logo_descrip">Logo</string>
     <string name="login_google_text">Iniciar con Google</string>
     <string name="web_client_id">545057855988-enud8gsgvnhe0o5dnrnc95iojurf9rom.apps.googleusercontent.com</string>
+    <string name="recover_password_text">Recover password</string>
+    <string name="btn_send_email">Send email</string>
+    <string name="back_to_login_recover">Back to login</string>
+    <string name="btn_sign_out_text">Sign-out</string>
+    <string name="product_img_description">Product</string>
 </resources>

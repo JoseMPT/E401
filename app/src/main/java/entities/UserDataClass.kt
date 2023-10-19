@@ -1,4 +1,4 @@
-package mx.tecnm.cdhidalgo.e401
+package entities
 
 data class UserDataClass(
     var name : String? = null,
