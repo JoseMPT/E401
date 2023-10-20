@@ -12,6 +12,7 @@ import com.google.android.gms.auth.api.identity.BeginSignInRequest
 import com.google.android.gms.auth.api.identity.Identity
 import com.google.android.gms.auth.api.identity.SignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.common.SignInButton
 import com.google.android.gms.common.api.ApiException
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputLayout
@@ -29,7 +30,7 @@ class Login : AppCompatActivity() {
     private lateinit var btnGoRegister: MaterialButton
     private lateinit var btnForgotPass: MaterialButton
     private lateinit var btnLogin: Button
-    private lateinit var btnGoogle: Button
+    private lateinit var btnGoogle: SignInButton
     private lateinit var inputEmail : TextInputLayout
     private lateinit var inputPassword : TextInputLayout
     private lateinit var auth: FirebaseAuth
@@ -127,7 +128,6 @@ class Login : AppCompatActivity() {
     @Deprecated("Deprecated in Java")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-
         // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
         when (requestCode) {
             codeResult -> {
@@ -156,8 +156,7 @@ class Login : AppCompatActivity() {
                                         Log.w(TAG, "signInWithCredential:failure", task.exception)
                                     }
                                 }
-                        }
-                        else -> {
+                        } else -> {
                             // Shouldn't happen.
                             Log.d(TAG, "No ID token!")
                         }
