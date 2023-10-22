@@ -23,4 +23,9 @@
     <string name="back_to_login_recover">Back to login</string>
     <string name="btn_sign_out_text">Sign-out</string>
     <string name="product_img_description">Product</string>
+
+    <string name="name_product" />
+    <string name="price_product">Precio: $%s</string>
+    <string name="description_product"/>
+    <string name="btn_add_to_cart">Agregar al carrito</string>
 </resources>
