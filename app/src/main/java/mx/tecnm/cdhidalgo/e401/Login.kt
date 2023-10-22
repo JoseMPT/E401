@@ -74,6 +74,10 @@ class Login : AppCompatActivity() {
 
         auth = Firebase.auth
         firestore = Firebase.firestore
+
+        /*if (auth.currentUser != null){
+            onSuccessfulLogin()
+        }*/
     }
 
     override fun onStart() {

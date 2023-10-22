@@ -28,7 +28,7 @@
                 android:layout_height="150dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginStart="10dp"
-                android:src="@drawable/artesania01"
+                android:src="@drawable/default_product"
                 android:scaleType="centerInside"
                 android:contentDescription="@string/product_img_description" />
             
