@@ -12,14 +12,30 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-        <ImageButton
-                android:id="@+id/btn_back_details"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/white"
-                android:contentDescription="TODO"
-                android:src="@drawable/img_back"
-                tools:ignore="TouchTargetSizeCheck" />
+        <TableLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:stretchColumns="1">
+            <TableRow>
+                <ImageButton
+                        android:id="@+id/btn_back_details"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/white"
+                        android:contentDescription="TODO"
+                        android:src="@drawable/img_back"
+                        android:layout_gravity="start"
+                        tools:ignore="TouchTargetSizeCheck" />
+
+                <ImageButton
+                        android:id="@+id/btn_cart_details"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/white"
+                        android:contentDescription="TODO"
+                        android:src="@drawable/cart"
+                        android:layout_gravity="end"
+                        tools:ignore="TouchTargetSizeCheck" />
+            </TableRow>
+        </TableLayout>
         <ImageView
                 android:id="@+id/product_image_details"
                 android:layout_width="wrap_content"

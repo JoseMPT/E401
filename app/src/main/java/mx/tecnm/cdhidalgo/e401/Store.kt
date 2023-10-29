@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.HorizontalScrollView
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -51,26 +52,9 @@ class Store : AppCompatActivity() {
             adapterArt = ArtsAdapter(listArts, this) {data ->
                 goToProductDetails(data)
             }
-
-            recyclerViewArt.layoutManager = LinearLayoutManager(this)
+            recyclerViewArt.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
             recyclerViewArt.adapter = adapterArt
         }
-
-
-        /*Firestorage*/
-        /*fireStorage = Firebase.storage
-        val storage = fireStorage.reference
-        val pathArts = storage.child("Arts")
-        pathArts.listAll().addOnSuccessListener {
-            for (item in it.items) {
-                val img = Images(item.path, "", "", 0.0, "", "artesania")
-                firestore.collection("arts").add(img)
-            }
-        }*/
-        val storageReference = Firebase.storage.reference
-
-
-
     }
 
     private fun goToProductDetails(data: ProductData){

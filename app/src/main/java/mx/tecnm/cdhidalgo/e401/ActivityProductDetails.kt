@@ -1,5 +1,6 @@
 package mx.tecnm.cdhidalgo.e401
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -10,21 +11,31 @@ import com.bumptech.glide.Glide
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
 import entities.ProductData
+import entities.Shopping
 
 class ActivityProductDetails : AppCompatActivity() {
     private lateinit var btnBackFromDetails: ImageButton
     private lateinit var btnPurchase: Button
+    private lateinit var btnCart: ImageButton
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_product_details)
 
         btnBackFromDetails = findViewById(R.id.btn_back_details)
         btnPurchase = findViewById(R.id.btn_add_to_cart)
+        btnCart = findViewById(R.id.btn_cart_details)
+
     }
 
     override fun onStart() {
         super.onStart()
         btnBackFromDetails.setOnClickListener {
+            finish()
+        }
+
+        btnCart.setOnClickListener {
+            val intent = Intent(this, ShoppingCart::class.java)
+            startActivity(intent)
             finish()
         }
 
@@ -47,7 +58,8 @@ class ActivityProductDetails : AppCompatActivity() {
         }
 
         btnPurchase.setOnClickListener {
-
+            listCart.add(Shopping(urlImage = productDetails?.urlImage, name = productDetails?.smallName, total = productDetails?.price, itemCount = 1))
+            finish()
         }
     }
 }
