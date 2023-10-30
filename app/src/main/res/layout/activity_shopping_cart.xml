@@ -45,15 +45,21 @@
                 tools:listitem="@layout/card_cart"
                 android:layout_marginTop="20dp"/>
 
-        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
-        android:id="@+id/total_cart"
-        android:layout_marginTop="20dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="textEnd"
+            android:textColor="@color/red"
+            android:textSize="18sp"
+            android:id="@+id/total_cart"
+            android:text="@string/cart_total"
+            android:layout_marginTop="10dp"/>
 
         <Button
             android:id="@+id/btn_purchased"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Purchased"/>
+            android:text="@string/cart_purchase"/>
 
     </LinearLayout>
 

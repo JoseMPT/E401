@@ -29,11 +29,26 @@ class ShoppingCart : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
         adapter = CartAdapter(listCart, this)
         recyclerView.adapter = adapter
+
+        var totalValue = 0.0
+        if (listCart.isNotEmpty()){
+            for (product in listCart){
+                totalValue += product.total!!
+            }
+        }
+        val iva = totalValue * 0.16
+
+        total.text = String.format("Subtotal: $%.2f\nIVA: $%.2f\nTotal: $%.2f", totalValue, iva, totalValue+iva)
     }
 
     override fun onStart() {
         super.onStart()
         btnBackToStore.setOnClickListener {
+            finish()
+        }
+
+        btnPurchased.setOnClickListener {
+            listCart.clear()
             finish()
         }
     }

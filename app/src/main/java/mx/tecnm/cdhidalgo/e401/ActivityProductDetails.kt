@@ -59,6 +59,8 @@ class ActivityProductDetails : AppCompatActivity() {
 
         btnPurchase.setOnClickListener {
             listCart.add(Shopping(urlImage = productDetails?.urlImage, name = productDetails?.smallName, total = productDetails?.price, itemCount = 1))
+            val intent = Intent(this, ShoppingCart::class.java)
+            startActivity(intent)
             finish()
         }
     }

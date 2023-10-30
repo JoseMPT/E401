@@ -28,4 +28,13 @@
     <string name="price_product">Precio: $%s</string>
     <string name="description_product"/>
     <string name="btn_add_to_cart">Agregar al carrito</string>
+
+    <string name="title_category1">Handicrafts</string>
+    <string name="title_category2">Bags</string>
+    <string name="title_category3">Fragrances</string>
+    <string name="title_category4">Wristbands</string>
+    <string name="title_category5">More products</string>
+
+    <string name="cart_total"/>
+    <string name="cart_purchase">Purchase</string>
 </resources>

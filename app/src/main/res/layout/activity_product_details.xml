@@ -49,6 +49,7 @@
                 android:id="@+id/product_name_details"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textSize="20sp"
                 android:text="@string/name_product"
                 android:textStyle="bold"
                 android:textAlignment="center"/>
@@ -58,6 +59,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
+                android:textSize="18sp"
                 android:text="@string/price_product"
                 android:textAlignment="textStart"/>
 
