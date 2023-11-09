@@ -13,7 +13,10 @@ import com.google.firebase.storage.ktx.storage
 import entities.ProductData
 import mx.tecnm.cdhidalgo.e401.R
 
-class ArtsAdapter (private val productsList : ArrayList<ProductData>, private val activity: Activity,private val onProductClick: (ProductData) -> Unit) : RecyclerView.Adapter<ArtsAdapter.ProductViewHolder>(){
+class ProductsAdapter (
+    private val productsList : ArrayList<ProductData>,
+    private val activity: Activity,
+    private val onProductClick: (ProductData) -> Unit) : RecyclerView.Adapter<ProductsAdapter.ProductViewHolder>(){
     class ProductViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         val photo : ImageView = itemView.findViewById(R.id.product_image)
         val name : TextView = itemView.findViewById(R.id.product_name)
@@ -26,8 +29,8 @@ class ArtsAdapter (private val productsList : ArrayList<ProductData>, private va
 
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
         val product = productsList[position]
-        val storage = Firebase.storage.reference.child(product.urlImage!!)
         //holder.photo.setImageResource(product.image)
+        val storage = Firebase.storage.reference.child(product.urlImage!!)
         storage.downloadUrl.addOnSuccessListener {
             Glide.with(activity).load(it).into(holder.photo)
         }

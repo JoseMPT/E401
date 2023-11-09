@@ -1,6 +1,6 @@
 package mx.tecnm.cdhidalgo.e401
 
-import adapters.ArtsAdapter
+import adapters.ProductsAdapter
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -36,11 +36,11 @@ class Store : AppCompatActivity() {
 
     //private lateinit var listImages: ArrayList<Images>
 
-    private lateinit var adapterArt: ArtsAdapter
-    private lateinit var adapterBag: ArtsAdapter
-    private lateinit var adapterFragrance: ArtsAdapter
-    private lateinit var adapterProduct: ArtsAdapter
-    private lateinit var adapterWristband: ArtsAdapter
+    private lateinit var adapterArt: ProductsAdapter
+    private lateinit var adapterBag: ProductsAdapter
+    private lateinit var adapterFragrance: ProductsAdapter
+    private lateinit var adapterProduct: ProductsAdapter
+    private lateinit var adapterWristband: ProductsAdapter
     //private lateinit var fireStorage: FirebaseStorage
 
     private lateinit var btnCart: ImageButton
@@ -72,7 +72,7 @@ class Store : AppCompatActivity() {
                 val productData = doc.toObject(ProductData::class.java)
                 listArts.add(productData!!)
             }
-            adapterArt = ArtsAdapter(listArts, this) {data ->
+            adapterArt = ProductsAdapter(listArts, this) { data ->
                 goToProductDetails(data)
             }
             recyclerViewArt.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
@@ -84,7 +84,7 @@ class Store : AppCompatActivity() {
                 val productData = doc.toObject(ProductData::class.java)
                 listBags.add(productData!!)
             }
-            adapterBag = ArtsAdapter(listBags, this) {data ->
+            adapterBag = ProductsAdapter(listBags, this) { data ->
                 goToProductDetails(data)
             }
             recyclerViewBag.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,false)
@@ -96,7 +96,7 @@ class Store : AppCompatActivity() {
                 val productData = doc.toObject(ProductData::class.java)
                 listFragrances.add(productData!!)
             }
-            adapterFragrance = ArtsAdapter(listFragrances, this) { data ->
+            adapterFragrance = ProductsAdapter(listFragrances, this) { data ->
                 goToProductDetails(data)
             }
             recyclerViewFragrances.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
@@ -108,7 +108,7 @@ class Store : AppCompatActivity() {
                 val productData = doc.toObject(ProductData::class.java)
                 listWristbands.add(productData!!)
             }
-            adapterWristband = ArtsAdapter(listWristbands, this) { data ->
+            adapterWristband = ProductsAdapter(listWristbands, this) { data ->
                 goToProductDetails(data)
             }
             recyclerViewWristbands.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
@@ -120,7 +120,7 @@ class Store : AppCompatActivity() {
                 val productData = doc.toObject(ProductData::class.java)
                 listProduct.add(productData!!)
             }
-            adapterProduct = ArtsAdapter(listProduct, this){ data ->
+            adapterProduct = ProductsAdapter(listProduct, this){ data ->
                 goToProductDetails(data)
             }
             recyclerViewProduct.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
@@ -157,6 +157,7 @@ class Store : AppCompatActivity() {
     private fun signOutUser(){
         auth.signOut()
         firestore.clearPersistence()
+        listCart.clear()
         val intent = Intent(this, Login::class.java)
         startActivity(intent)
         finish()

@@ -6,8 +6,13 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import entities.Shopping
 
 var listCart : ArrayList<Shopping> = ArrayList()
@@ -39,16 +44,27 @@ class ShoppingCart : AppCompatActivity() {
         val iva = totalValue * 0.16
 
         total.text = String.format("Subtotal: $%.2f\nIVA: $%.2f\nTotal: $%.2f", totalValue, iva, totalValue+iva)
+
+        btnPurchased.setOnClickListener {
+            val confirmData = AlertDialog.Builder(it.context)
+            confirmData.setTitle("Finalizar compra")
+            confirmData.setMessage("Productos comprados: ${listCart.size}\nTotal: \$${totalValue+iva}")
+            confirmData.setPositiveButton("Confirm"){ _, _ ->
+                listCart.clear()
+                finish()
+            }
+            confirmData.setNegativeButton("Cancel"){ _, _ ->}
+            if (listCart.size <= 0) {
+                Toast.makeText(this, "Add products to cart", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+            confirmData.show()
+        }
     }
 
     override fun onStart() {
         super.onStart()
         btnBackToStore.setOnClickListener {
-            finish()
-        }
-
-        btnPurchased.setOnClickListener {
-            listCart.clear()
             finish()
         }
     }
