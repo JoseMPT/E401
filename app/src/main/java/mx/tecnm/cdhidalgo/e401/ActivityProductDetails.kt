@@ -17,6 +17,7 @@ class ActivityProductDetails : AppCompatActivity() {
     private lateinit var btnBackFromDetails: ImageButton
     private lateinit var btnPurchase: Button
     private lateinit var btnCart: ImageButton
+    private lateinit var cartCount: TextView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_product_details)
@@ -24,7 +25,8 @@ class ActivityProductDetails : AppCompatActivity() {
         btnBackFromDetails = findViewById(R.id.btn_back_details)
         btnPurchase = findViewById(R.id.btn_add_to_cart)
         btnCart = findViewById(R.id.btn_cart_details)
-
+        cartCount = findViewById(R.id.cart_count_details)
+        cartCount.text = listCart.size.toString()
     }
 
     override fun onStart() {
@@ -59,6 +61,7 @@ class ActivityProductDetails : AppCompatActivity() {
 
         btnPurchase.setOnClickListener {
             listCart.add(Shopping(urlImage = productDetails?.urlImage, name = productDetails?.smallName, total = productDetails?.price, itemCount = 1))
+            cartCount.text = listCart.size.toString()
             val intent = Intent(this, ShoppingCart::class.java)
             startActivity(intent)
             finish()

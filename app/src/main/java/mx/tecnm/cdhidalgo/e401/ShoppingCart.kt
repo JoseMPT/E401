@@ -22,6 +22,7 @@ class ShoppingCart : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: CartAdapter
     private lateinit var total: TextView
+    private lateinit var cartCount: TextView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_shopping_cart)
@@ -30,6 +31,7 @@ class ShoppingCart : AppCompatActivity() {
         btnPurchased = findViewById(R.id.btn_purchased)
         recyclerView = findViewById(R.id.cart_products)
         total = findViewById(R.id.total_cart)
+        cartCount = findViewById(R.id.cart_count)
 
         recyclerView.layoutManager = LinearLayoutManager(this)
         adapter = CartAdapter(listCart, this)
@@ -67,5 +69,7 @@ class ShoppingCart : AppCompatActivity() {
         btnBackToStore.setOnClickListener {
             finish()
         }
+
+        cartCount.text = listCart.size.toString()
     }
 }

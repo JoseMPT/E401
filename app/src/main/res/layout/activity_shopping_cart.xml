@@ -25,7 +25,12 @@
                         android:layout_gravity="start"
                         tools:ignore="TouchTargetSizeCheck"/>
 
-                <ImageButton
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                >
+                    <ImageButton
                         android:id="@+id/btn_cart"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -35,6 +40,14 @@
                         android:layout_gravity="end"
                         android:clickable="false"
                         tools:ignore="TouchTargetSizeCheck"/>
+                    <TextView
+                        android:id="@+id/cart_count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|start"
+                        android:layout_marginStart="-15dp"
+                        android:text="0" />
+                </LinearLayout>
             </TableRow>
         </TableLayout>
 

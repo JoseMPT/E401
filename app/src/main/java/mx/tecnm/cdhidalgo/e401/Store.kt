@@ -18,6 +18,7 @@ import entities.ProductData
 
 class Store : AppCompatActivity() {
     private lateinit var userText : TextView
+    private lateinit var cartCount: TextView
     private lateinit var btnSignOut : Button
     private lateinit var auth: FirebaseAuth
     private lateinit var firestore: FirebaseFirestore
@@ -47,6 +48,9 @@ class Store : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_store)
+
+        cartCount = findViewById(R.id.cart_count_store)
+        cartCount.text = listCart.size.toString()
 
         userText = findViewById(R.id.user_store)
         btnSignOut = findViewById(R.id.sign_out)
@@ -152,6 +156,11 @@ class Store : AppCompatActivity() {
         btnSignOut.setOnClickListener {
             signOutUser()
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        cartCount.text = listCart.size.toString()
     }
 
     private fun signOutUser(){
